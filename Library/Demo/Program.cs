@@ -2,11 +2,21 @@
 
 namespace Demo
 {
+    /// <summary>
+    /// Исполняемый файл.
+    /// </summary>
     class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        /// Точка входа в программу.
+        /// </summary>
+        static void Main()
         {
-            Console.WriteLine("Hello World!");
+            var book = new Library.Core.Book(1, "Сказки");
+            var author = new Library.Core.Author();
+
+            Console.WriteLine(book);
+            Console.WriteLine(author);
         }
     }
 }
