@@ -17,8 +17,8 @@ namespace Demo
         /// </summary>
         private static void Main()
         {
-            var book = new Book(1, "Сказки");
             var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
+            var book = new Book(1, "Сказки", author);
 
             Console.WriteLine(book);
             Console.WriteLine(author);
