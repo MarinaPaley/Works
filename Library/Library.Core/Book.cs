@@ -21,7 +21,7 @@ namespace Library.Core
         /// <param name="title"> Название. </param>
         /// <param name="authors"> Авторы книги. </param>
         public Book(int id, string title, params Author[] authors)
-            : this(id, title, new HashSet<Author>())
+            : this(id, title, new HashSet<Author>(authors))
         {
         }
 
@@ -77,7 +77,7 @@ namespace Library.Core
         /// <returns> Строковое представление книги. </returns>
         public override string ToString()
         {
-            return $"{string.Join<Author>(", ", this.Authors)} {this.Title}".Trim();
+            return $"{string.Join(", ", this.Authors)} {this.Title}".Trim();
         }
     }
 }
