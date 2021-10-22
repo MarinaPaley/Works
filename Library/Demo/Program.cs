@@ -1,19 +1,24 @@
-﻿using System;
+﻿// <copyright file="Program.cs" company="Васильева Марина Алексеевна">
+// Copyright (c) Васильева Марина Алексеевна 2021. Учебные материалы.
+// </copyright>
 
 namespace Demo
 {
+    using System;
+    using Library.Core;
+
     /// <summary>
     /// Исполняемый файл.
     /// </summary>
-    class Program
+    internal class Program
     {
         /// <summary>
         /// Точка входа в программу.
         /// </summary>
-        static void Main()
+        private static void Main()
         {
-            var book = new Library.Core.Book(1, "Сказки");
-            var author = new Library.Core.Author();
+            var book = new Book(1, "Сказки");
+            var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
 
             Console.WriteLine(book);
             Console.WriteLine(author);
