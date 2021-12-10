@@ -59,17 +59,17 @@ namespace Library.Core
         /// <summary>
         /// Идентификатор.
         /// </summary>
-        public int Id { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
         /// Название книги.
         /// </summary>
-        public string Title { get; protected set; }
+        public virtual string Title { get; protected set; }
 
         /// <summary>
         /// Авторы книги.
         /// </summary>
-        public ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
+        public virtual ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
 
         /// <summary>
         /// Представление объекта книга в виде строки.

@@ -15,28 +15,28 @@ namespace Library.Core.Tests
         [Test]
         public void ToString_ValidData_Success()
         {
-            //arrange
+            // arrange
             var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
             var expected = "Пушкин Александр Сергеевич";
 
-            //act
+            // act
             var actual = author.ToString();
 
-            //assert
+            // assert
             Assert.AreEqual(expected, actual);
         }
 
         [Test]
         public void AddBook_ValidData_Success()
         {
-            //arrange
+            // arrange
             var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
             var book = new Book(1, "Сказки");
 
-            //act
+            // act
             var actual = author.AddBook(book);
 
-            //assert
+            // assert
             Assert.IsTrue(actual);
         }
     }

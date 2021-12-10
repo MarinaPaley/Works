@@ -36,34 +36,34 @@ namespace Library.Core
         /// <summary>
         /// Идентификатор.
         /// </summary>
-        public int Id { get; protected set; }
+        public  int Id { get; protected set; }
 
         /// <summary>
         /// Фамилия.
         /// </summary>
-        public string LastName { get; protected set; }
+        public virtual string LastName { get; protected set; }
 
         /// <summary>
         /// Имя.
         /// </summary>
-        public string FistName { get; protected set; }
+        public virtual string FistName { get; protected set; }
 
         /// <summary>
         /// Отчество.
         /// </summary>
-        public string MiddleName { get; protected set; }
+        public virtual string MiddleName { get; protected set; }
 
         /// <summary>
         /// Коллекция книг.
         /// </summary>
-        public ISet<Book> Books { get; protected set; } = new HashSet<Book>();
+        public virtual ISet<Book> Books { get; protected set; } = new HashSet<Book>();
 
         /// <summary>
         /// Добавление книги автору.
         /// </summary>
         /// <param name="book"> Книга. </param>
         /// <returns> <see langword="true"/> в случае успешного добавления. </returns>
-        public bool AddBook(Book book)
+        public virtual bool AddBook(Book book)
         {
             if (book == null)
             {
@@ -76,7 +76,7 @@ namespace Library.Core
         /// <summary>
         /// Полное имя.
         /// </summary>
-        public string FullName => $"{this.LastName} {this.FistName} {this.MiddleName}".Trim();
+        public virtual string FullName => $"{this.LastName} {this.FistName} {this.MiddleName}".Trim();
         
         /// <inheritdoc />
         public override string ToString() => this.FullName;
