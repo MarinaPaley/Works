@@ -5,6 +5,8 @@
 namespace Demo
 {
     using System;
+    using DataAccessLayer;
+    using DataAccessLayer.ORM;
     using Library.Core;
 
     /// <summary>
@@ -17,8 +19,24 @@ namespace Demo
         /// </summary>
         private static void Main()
         {
-            var book = new Book(1, "Сказки");
             var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
+            var book = new Book(1, "Сказки", author);
+
+            var settings = new Settings();
+
+            settings.AddDatabaseServer(@"LAPTOP-2ALR8J1J\SQLEXPRESS");
+
+            settings.AddDatabaseName("LibraryUIS");
+
+            using var sessionFactory = FluentNHibernateConfigurator
+                .GetSessionFactory(settings, showSql: true);
+
+            using (var session = sessionFactory.OpenSession())
+            {
+                session.Save(book);
+                session.Save(author);
+                session.Flush();
+            }
 
             Console.WriteLine(book);
             Console.WriteLine(author);
