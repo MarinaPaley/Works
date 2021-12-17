@@ -34,9 +34,17 @@ namespace Library.Core
         }
 
         /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Author"/>.
+        /// </summary>
+        [Obsolete("For ORM", true)]
+        protected Author()
+        {
+        }
+
+        /// <summary>
         /// Идентификатор.
         /// </summary>
-        public  int Id { get; protected set; }
+        public virtual int Id { get; protected set; }
 
         /// <summary>
         /// Фамилия.

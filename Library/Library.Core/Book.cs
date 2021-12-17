@@ -14,6 +14,7 @@ namespace Library.Core
     /// </summary>
     public class Book
     {
+        
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Book"/>.
         /// </summary>
@@ -54,6 +55,13 @@ namespace Library.Core
                 this.Authors.Add(author);
                 author.AddBook(this);
             }
+        }
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Book"/>.
+        /// </summary>
+        [Obsolete("For ORM", true)]
+        protected Book()
+        {
         }
 
         /// <summary>
