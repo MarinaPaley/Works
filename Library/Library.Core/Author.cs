@@ -67,6 +67,11 @@ namespace Library.Core
         public virtual ISet<Book> Books { get; protected set; } = new HashSet<Book>();
 
         /// <summary>
+        /// Полное имя.
+        /// </summary>
+        public virtual string FullName => $"{this.LastName} {this.FistName} {this.MiddleName}".Trim();
+
+        /// <summary>
         /// Добавление книги автору.
         /// </summary>
         /// <param name="book"> Книга. </param>
@@ -81,11 +86,6 @@ namespace Library.Core
             return this.Books.Add(book);
         }
 
-        /// <summary>
-        /// Полное имя.
-        /// </summary>
-        public virtual string FullName => $"{this.LastName} {this.FistName} {this.MiddleName}".Trim();
-        
         /// <inheritdoc />
         public override string ToString() => this.FullName;
     }

@@ -14,7 +14,6 @@ namespace Library.Core
     /// </summary>
     public class Book
     {
-        
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Book"/>.
         /// </summary>
@@ -56,6 +55,7 @@ namespace Library.Core
                 author.AddBook(this);
             }
         }
+
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Book"/>.
         /// </summary>
@@ -78,6 +78,30 @@ namespace Library.Core
         /// Авторы книги.
         /// </summary>
         public virtual ISet<Author> Authors { get; protected set; } = new HashSet<Author>();
+
+        /// <summary>
+        /// Полка.
+        /// </summary>
+        public virtual Shelf Shelf { get; protected set; }
+
+        /// <summary>
+        /// Положить книгу на полку.
+        /// </summary>
+        /// <param name="shelf"> Полка. </param>
+        /// <returns> Если книга была добавлена, то возвращаем <see langword="true"/>.</returns>
+        /// <exception cref="ArgumentOutOfRangeException">
+        /// В случае если <paramref name="shelf"/> – <see langword="null"/> или пустая строка <see cref="string.Empty"/>.
+        /// </exception>
+        public virtual bool AddBookToShelf(Shelf shelf)
+        {
+            this.Shelf?.Books.Remove(this);
+
+            this.Shelf = shelf ?? throw new ArgumentNullException(nameof(shelf));
+
+            this.Shelf = shelf;
+
+            return this.Shelf.Books.Add(this);
+        }
 
         /// <summary>
         /// Представление объекта книга в виде строки.

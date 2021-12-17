@@ -21,6 +21,12 @@ namespace Demo
         {
             var author = new Author(1, "Пушкин", "Александр", "Сергеевич");
             var book = new Book(1, "Сказки", author);
+            var shelf = new Shelf(1, "Полка 1");
+            book.AddBookToShelf(shelf);
+
+            Console.WriteLine(book);
+            Console.WriteLine(author);
+            Console.WriteLine(shelf);
 
             var settings = new Settings();
 
@@ -33,13 +39,11 @@ namespace Demo
 
             using (var session = sessionFactory.OpenSession())
             {
-                session.Save(book);
                 session.Save(author);
+                session.Save(shelf);
+                session.Save(book);
                 session.Flush();
             }
-
-            Console.WriteLine(book);
-            Console.WriteLine(author);
         }
     }
 }

@@ -1,12 +1,20 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿// <copyright file="AuthorMap.cs" company="Васильева Марина Алексеевна">
+// Copyright (c) Васильева Марина Алексеевна 2021. Учебные материалы.
+// </copyright>
 
 namespace DataAccessLayer.ORM
 {
     using FluentNHibernate.Mapping;
     using Library.Core;
-    class AuthorMap : ClassMap<Author>
+
+    /// <summary>
+    /// Mapping на <see cref="Author"/>.
+    /// </summary>
+    public class AuthorMap : ClassMap<Author>
     {
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="AuthorMap"/>.
+        /// </summary>
         public AuthorMap()
         {
             this.Table("Author");
@@ -24,7 +32,6 @@ namespace DataAccessLayer.ORM
 
             this.HasManyToMany(x => x.Books)
                 .Cascade.Delete();
-
         }
     }
 }
